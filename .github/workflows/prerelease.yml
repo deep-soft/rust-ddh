@@ -179,12 +179,8 @@ jobs:
       shell: bash
       run: |
         outdir="$(sh ci/cargo-out-dir "${{ env.TARGET_DIR }}")"
-        staging="ddh-${{ needs.create-release.outputs.DDH_VERSION }}-${{ matrix.target }}"
-        mkdir -p "$staging"/{complete,doc}
-
-        cp {README.md,COPYING,UNLICENSE,LICENSE-MIT} "$staging/"
-        cp {CHANGELOG.md,FAQ.md,GUIDE.md} "$staging/doc/"
-
+        staging="ddh-${{ matrix.target }}"
+        mkdir -p "$staging"
         if [ "${{ matrix.os }}" = "windows-2022" ]; then
           cp "target/${{ matrix.target }}/release/ddh.exe" "$staging/"
           7z a "$staging.zip" "$staging"
