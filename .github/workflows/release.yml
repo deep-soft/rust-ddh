@@ -16,4 +16,4 @@ jobs:
       run: cargo test --verbose
     - name: Release
       run: |
-        ls -lR target/debug
+        ls -lR target/release
