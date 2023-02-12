@@ -178,7 +178,7 @@ jobs:
       continue-on-error: true
       shell: bash
       run: |
-        outdir="$(ci/cargo-out-dir "${{ env.TARGET_DIR }}")"
+        outdir="$(sh ci/cargo-out-dir "${{ env.TARGET_DIR }}")"
         staging="ddh-${{ needs.create-release.outputs.DDH_VERSION }}-${{ matrix.target }}"
         mkdir -p "$staging"/{complete,doc}
 
